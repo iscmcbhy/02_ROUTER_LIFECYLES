@@ -1,0 +1,10 @@
+BrowserRouter >> object to interact and know what is happening in the URL
+Router >> execute whatever BrowserRouter throw
+
+
+<Link to={{
+    pathname: '/profile',
+    hash: '#francis',
+    search: '?profile=true'
+    }}> Profile 
+</Link>
