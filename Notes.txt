@@ -8,3 +8,30 @@ Router >> execute whatever BrowserRouter throw
     search: '?profile=true'
     }}> Profile 
 </Link>
+
+
+HashRouter >>> 
+MemoryRouter >>> 
+
+NavLink >>> 
+
+ activeStyle={{color: 'red'}} >>> 
+
+ Switch >>> for router switching, like switch statement
+
+ <Redirect from="/profile" to="/"/>
+
+ PureComponent >>> Checking the state and dont re-render
+
+ whenever making an array of jsx always put key attribute
+
+
+ HOC >> High Order Components, use for templates??
+  <Card>
+            <Link to={{
+                pathname: `${props.match.url}/posts`
+            }}> /profile/posts </Link>
+
+            {redir()}
+        </Card>
+        >>>> simplest way to use

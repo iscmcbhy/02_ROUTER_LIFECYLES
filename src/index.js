@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, NavLink, Switch } from 'react-router-dom';
 
 // Components
 import Home from './components/home';
 import Posts from './components/posts';
 import Profile from './components/profile';
+import PostItem from './components/post_item';
+import Life from './components/lifecycle';
+import Conditional from './components/conditional';
+import User from './components/user';
 
 //myApp.com/posts
 //myapp.com/profile/posts
@@ -15,17 +19,29 @@ const App = () => {
         <BrowserRouter>
             <div>
                 <header>
-                    <Link to="/"> Home </Link><br/>
-                    <Link to="/posts"> Posts </Link><br/>
-                    <Link to={{
+                    <NavLink to="/"> Home </NavLink><br/>
+                    <NavLink 
+                        to="/posts"
+                        activeStyle={{color: 'red'}}
+                        activeClassName="selected"
+                        > Posts </NavLink><br/>
+                    <NavLink to={{
                         pathname: '/profile'
-                    }}> Profile 
-                    </Link><br/>
+                    }}> Profile </NavLink><br/>
+                    <NavLink to="/life"> Life </NavLink> <br/>
+                    <NavLink to="/conditional"> Conditional </NavLink> <br/>
+                    <NavLink to="/user"> User </NavLink> <br/>
                     <hr/>
                 </header>
-                <Route path="/" exact component={Home}/>
-                <Route path="/posts" component={Posts}/> 
-                <Route path="/profile" component={Profile}/>
+                <Switch>
+                    <Route path="/posts/:id/:username" component={PostItem}/>
+                    <Route path="/posts" component={Posts}/> 
+                    <Route path="/profile" component={Profile}/>
+                    <Route path="/life" component={Life}/>
+                    <Route path="/conditional" component={Conditional}/>
+                    <Route path="/user" component={User}/>
+                    <Route path="/" exact component={Home}/>
+                </Switch>
             </div>
         </BrowserRouter>
     )
